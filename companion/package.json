@@ -1,0 +1,13 @@
+{
+  "name": "freeflow-windows-companion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable transcription-pipeline cores for the FreeFlow Windows companion (Tauri track). Dependency-free; runs on Node 18+.",
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
