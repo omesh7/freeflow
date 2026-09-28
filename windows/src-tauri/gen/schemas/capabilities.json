@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Spike 1: window only. The frontend uses plain web fetch/file input, no privileged Tauri APIs yet.","local":true,"windows":["main"],"permissions":[]}}

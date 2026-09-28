@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FreeFlow Windows</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; margin: 0; background: #111827; color: #e5e7eb; }
+  main { max-width: 560px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.sub { color: #9ca3af; font-size: 13px; margin: 0 0 16px; }
+  section { background: #1f2937; border-radius: 10px; padding: 14px; margin-bottom: 12px; }
+  h2 { font-size: 14px; margin: 0 0 10px; color: #93c5fd; }
+  label { display: block; font-size: 12px; color: #9ca3af; margin: 8px 0 4px; }
+  input[type=text], input[type=password] { width: 100%; box-sizing: border-box; background: #111827; border: 1px solid #374151; color: #e5e7eb; border-radius: 6px; padding: 8px; }
+  button { background: #2563eb; border: 0; color: white; border-radius: 6px; padding: 9px 14px; margin-top: 10px; cursor: pointer; font-size: 14px; }
+  button:disabled { background: #374151; cursor: wait; }
+  pre { background: #111827; border: 1px solid #374151; border-radius: 6px; padding: 10px; white-space: pre-wrap; word-break: break-word; font-size: 12.5px; min-height: 40px; }
+  .note { font-size: 12px; color: #9ca3af; }
+</style>
+</head>
+<body>
+<main>
+  <h1>FreeFlow Windows <span class="note">spike 1</span></h1>
+  <p class="sub">Tray shell + transcription test + fork update check. Mic capture, global hotkey and auto-paste are not in this spike.</p>
+
+  <section>
+    <h2>Provider</h2>
+    <label for="baseUrl">Base URL (any OpenAI-compatible endpoint)</label>
+    <input id="baseUrl" type="text" value="https://api.groq.com/openai/v1" autocomplete="off" spellcheck="false" />
+    <label for="model">Transcription model</label>
+    <input id="model" type="text" value="whisper-large-v3" autocomplete="off" spellcheck="false" />
+    <label for="apiKey">API key (kept in memory only, never saved or logged)</label>
+    <input id="apiKey" type="password" autocomplete="off" spellcheck="false" />
+  </section>
+
+  <section>
+    <h2>Transcription test</h2>
+    <label for="audioFile">Audio file (wav/mp3/m4a)</label>
+    <input id="audioFile" type="file" accept="audio/*,.wav,.mp3,.m4a" />
+    <div>
+      <button id="cloudBtn">Transcribe (cloud)</button>
+      <button id="localBtn">Transcribe (local :8080)</button>
+    </div>
+    <pre id="transcribeOut">No run yet.</pre>
+  </section>
+
+  <section>
+    <h2>Update stream</h2>
+    <p class="note" id="feedUrl"></p>
+    <button id="updateBtn">Check fork for updates</button>
+    <pre id="updateOut">No check yet.</pre>
+  </section>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
